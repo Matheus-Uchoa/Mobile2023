@@ -53,12 +53,6 @@ class _AppGetState extends State<AppGet> {
         title: Text('Produtos'),
         actions: [
           IconButton(
-            icon: Icon(Icons.ondemand_video),
-            onPressed: () {
-             
-            },
-          ),
-          IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
               Navigator.push(context,
