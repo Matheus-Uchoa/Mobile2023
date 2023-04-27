@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile2023/components/form_input_component.dart';
 import 'package:mobile2023/components/submit_btn.dart';
 
-/*class Formulario extends StatefulWidget {
+class Formulario extends StatefulWidget {
   const Formulario({Key? key}) : super(key: key);
 
   @override
@@ -10,11 +10,16 @@ import 'package:mobile2023/components/submit_btn.dart';
 }
 
 class _FormularioState extends State<Formulario> {
+  final _nomeProduto = TextEditingController();
+  final _descricao = TextEditingController();
+  final _modelo = TextEditingController();
+  final _preco = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        title: Text("Cadastro de Produtos"),
         elevation: 0,
       ),
       body: Container(
@@ -26,40 +31,32 @@ class _FormularioState extends State<Formulario> {
         color: Colors.white,
         child: ListView(
           children: <Widget>[
-            Column(
-              children: <Widget>[
-                Text(
-                  "Cadastro de Produtos",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.teal,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
-            ),
+
             SizedBox(
               width: 128,
-              height: 90,
+              height: 60,
             ),
             Input(
               labelText: '    Nome do Produto',
               keyboardType: TextInputType.name,
+              controller: _nomeProduto,
             ),
-            Input(labelText: '    Categoria', keyboardType: TextInputType.name),
-            Input(labelText: '    Marca', keyboardType: TextInputType.name),
+            Input(
+                labelText: '    Descrição',
+                keyboardType: TextInputType.name,
+                controller: _descricao),
+            Input(
+                labelText: '    Modelo',
+                keyboardType: TextInputType.name,
+                controller: _modelo),
             Input(
                 labelText: '    Preço',
-                keyboardType: TextInputType.numberWithOptions(decimal: true)),
-            Input(
-                labelText: '    Código do Produto',
-                keyboardType: TextInputType.number),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                controller: _preco),
             SubmitBtn(
               btn_label: "Salvar",
-              btn_color: Colors.teal,
+              btn_color: Colors.blueAccent,
+              onPressed: () {},
             )
           ],
         ),
@@ -67,4 +64,3 @@ class _FormularioState extends State<Formulario> {
     );
   }
 }
-*/

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile2023/appget.dart';
+import 'package:mobile2023/components/form_input_component.dart';
+import 'package:mobile2023/components/submit_btn.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               children: <Widget>[
                 Text(
-                  "Log in",
+                  "Log-in",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 30,
@@ -42,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 10,
                 ),
                 Text(
-                  "Entre com o seu E-mail e senha",
+                  "Faça login no sistema",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 )
               ],
@@ -51,102 +53,25 @@ class _LoginPageState extends State<LoginPage> {
               width: 128,
               height: 128,
             ),
-
-            // Text('Login', style: TextStyle(fontSize: 20),textAlign: TextAlign.center),
-            Material(
-              elevation: 5,
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white54,
-                ),
-                child: TextFormField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    labelText: "    E-mail",
-                    labelStyle: TextStyle(
-                      color: Colors.black38,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
-                    ),
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            ),
-
+            Input(
+                labelText: '  Email',
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController),
             SizedBox(
               height: 10,
             ),
-            Material(
-              elevation: 5,
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white54,
-                ),
-                child: TextFormField(
-                  controller: _passwordController,
-                  keyboardType: TextInputType.text,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    labelText: "    Senha",
-                    labelStyle: TextStyle(
-                      color: Colors.black38,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 15,
-                    ),
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-            ),
-            Container(
-              height: 40,
-              alignment: Alignment.centerRight,
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-                height: 60,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0.3, 1],
-                    colors: [
-                      Colors.blue,
-                      Colors.lightBlueAccent,
-                    ],
-                  ),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: SizedBox.expand(
-                  child: TextButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "ENTRAR",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => AppGet()));
-                    },
-                  ),
-                )),
+            Input(
+                labelText: ' Senha',
+                keyboardType: TextInputType.visiblePassword,
+                controller: _passwordController),
+            SizedBox(height: 20,),
+            SubmitBtn(
+                btn_label: 'ENTRAR',
+                btn_color: Colors.blueAccent,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AppGet()));
+                }),
             Container(
               child: TextButton(
                 onPressed: () {},
